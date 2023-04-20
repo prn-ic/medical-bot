@@ -1,0 +1,17 @@
+[DEBUG] 01:56:28,527 (asyncio): Using proactor: IocpProactor
+[DEBUG] 01:56:28,529 (aiogram): Make request: "getMe" with data: "{}" and files "None"
+[DEBUG] 01:56:28,915 (aiogram): Response for getMe: [200] "'{"ok":true,"result":{"id":5421871737,"is_bot":true,"first_name":"MedicalBot","username":"OrskMedical_bot","can_join_groups":true,"can_read_all_group_messages":false,"supports_inline_queries":false}}'"
+[INFO] 01:56:28,915 (aiogram): Bot: MedicalBot [@OrskMedical_bot]
+[DEBUG] 01:56:28,915 (aiogram): Make request: "getWebhookInfo" with data: "{}" and files "None"
+[DEBUG] 01:56:28,989 (aiogram): Response for getWebhookInfo: [200] "'{"ok":true,"result":{"url":"","has_custom_certificate":false,"pending_update_count":0}}'"
+[DEBUG] 01:56:28,990 (aiogram): Make request: "deleteWebhook" with data: "{'drop_pending_updates': True}" and files "None"
+[DEBUG] 01:56:29,66 (aiogram): Response for deleteWebhook: [200] "'{"ok":true,"result":true,"description":"Webhook is already deleted"}'"
+[WARNING] 01:56:29,66 (aiogram): Updates were skipped successfully.
+[INFO] 01:56:29,66 (aiogram.dispatcher.dispatcher): Start polling.
+[DEBUG] 01:56:29,66 (aiogram): Make request: "getWebhookInfo" with data: "{}" and files "None"
+[DEBUG] 01:56:29,141 (aiogram): Response for getWebhookInfo: [200] "'{"ok":true,"result":{"url":"","has_custom_certificate":false,"pending_update_count":0}}'"
+[DEBUG] 01:56:29,142 (aiogram): Make request: "getUpdates" with data: "{'timeout': 20}" and files "None"
+[DEBUG] 01:56:49,217 (aiogram): Response for getUpdates: [200] "'{"ok":true,"result":[]}'"
+[DEBUG] 01:56:49,324 (aiogram): Make request: "getUpdates" with data: "{'timeout': 20}" and files "None"
+[INFO] 01:57:01,114 (aiogram.dispatcher.dispatcher): Stop polling...
+[WARNING] 01:57:01,115 (aiogram): Goodbye!
