@@ -13,6 +13,8 @@ dist/
 venv/
 downloads/
 eggs/
+log/
+logs/
 .eggs/
 lib/
 lib64/
