@@ -1,7 +1,5 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
-*$py.class
 
 # C extensions
 *.so
@@ -11,6 +9,8 @@ __pycache__/
 build/
 develop-eggs/
 dist/
+.idea/
+venv/
 downloads/
 eggs/
 .eggs/
@@ -47,7 +47,6 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
-*.py,cover
 .hypothesis/
 .pytest_cache/
 
