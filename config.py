@@ -1,6 +1,7 @@
 from dotenv import load_dotenv, find_dotenv
 from aiogram import Bot, Dispatcher
-from utils import logger
+from utils.logger import txt_logger
+from database.models import migrate
 import os
 import logging
 
@@ -10,6 +11,7 @@ dispatcher = Dispatcher(bot)
 
 
 if __debug__:
-    logger.start_logging(logging_level=logging.DEBUG, log_path='log/debug')
+    txt_logger.start_logging(logging_level=logging.DEBUG, log_path='log/debug')
+    migrate()
 else:
-    logger.start_logging(logging_level=logging.INFO, log_path='log/release')
+    txt_logger.start_logging(logging_level=logging.INFO, log_path='log/release')
