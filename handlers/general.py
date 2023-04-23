@@ -27,6 +27,10 @@ async def go_menu(message: types.Message):
     await message.answer('↩️ Возвращаемся в меню', reply_markup=user_main_keyboard, parse_mode="Markdown")
 
 
+async def unhandled_command(message: types.Message):
+    await message.answer("Извините, но такой команды не существует")
+
+
 def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(start, commands=['start'])
     dp.register_message_handler(skip_auth, lambda message: message.text == '🚷 Продолжить без авторизации')
@@ -35,3 +39,4 @@ def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(get_info, commands=['info'])
     dp.register_message_handler(go_menu, commands=['menu'])
     dp.register_message_handler(go_menu, lambda message: message.text == '↩️ В меню')
+    dp.register_message_handler(unhandled_command)
