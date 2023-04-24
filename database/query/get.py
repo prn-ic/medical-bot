@@ -1,5 +1,5 @@
 from dotenv import load_dotenv, find_dotenv
-from database.models import Question
+from database.models import Question, Establishment
 import os
 import peewee
 
@@ -18,3 +18,19 @@ def get_question(question_name: str):
         return 'Извините, мы не знаем ответ на ваш вопрос'
 
     return answer
+
+
+def get_establisments_cities():
+    establishments = Establishment.select()
+    return [establishment.city_name for establishment in establishments]
+
+
+def get_establishments_by_city_name(value: str):
+    establishments = Establishment.select().where(Establishment.city_name == value)
+    return [establishment for establishment in establishments]
+
+
+def get_establishment_by_name(value: str):
+    establishment = Establishment.get_or_none(Establishment.name == value)
+    return establishment
+

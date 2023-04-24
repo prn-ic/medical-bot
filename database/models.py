@@ -51,6 +51,14 @@ class User(BaseModel):
     expiration_time = peewee.DateTimeField(default=datetime.datetime.now() + datetime.timedelta(days=30))
 
 
+class Employee(BaseModel):
+    class Meta:
+        db_table = 'employees'
+
+    user = peewee.ForeignKeyField(User, on_delete='cascade')
+    position = peewee.CharField()
+
+
 class EmployeeEstablishment(BaseModel):
     class Meta:
         db_table = 'employees_establishments'

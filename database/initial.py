@@ -10,6 +10,7 @@ if __name__ == '__main__':
                       RecordType,
                       Establishment,
                       User,
+                      Employee,
                       EmployeeEstablishment,
                       UserInfo,
                       Question,
