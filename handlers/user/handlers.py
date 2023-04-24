@@ -110,6 +110,7 @@ async def contact_info_callback(callback: types.CallbackQuery):
 
 def register_handlers_user(dp: Dispatcher):
     dp.register_message_handler(help_command, commands=['help'])
+    dp.register_message_handler(help_command, lambda message: message.text == '📍 Помощь')
     dp.register_message_handler(get_info, lambda message: message.text == 'ℹ️ Информация')
     dp.register_message_handler(get_info, commands=['info'])
     dp.register_message_handler(go_menu, commands=['menu'])
