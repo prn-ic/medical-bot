@@ -10,7 +10,6 @@ from utils.states import SearchState
 
 
 async def help_command(message: types.Message):
-    await message.answer('Выбран')
     await message.answer(get_question('user_help'), reply_markup=welcome_keyboard, parse_mode='Markdown')
 
 
