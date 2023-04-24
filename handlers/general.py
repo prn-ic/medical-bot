@@ -1,16 +1,14 @@
 from aiogram import types, Dispatcher
-from utils.database.questions import get_answer
+from database.query.get import get_question
 from keyboards.keyboards import welcome_keyboard, user_main_keyboard
 
 
 async def start(message: types.Message):
-    await message.answer(get_answer('start'), reply_markup=welcome_keyboard)
+    await message.answer(get_question('start'), reply_markup=welcome_keyboard)
 
 
 async def skip_auth(message: types.Message):
-    await message.answer('Вы проигнорировали авторизацию.'
-                         ' Без авторизации множество функций ограничено')
-    await message.answer(get_answer('user_help'), reply_markup=user_main_keyboard, parse_mode="Markdown")
+    await message.answer(get_question('user_help'), reply_markup=user_main_keyboard, parse_mode="Markdown")
 
 
 async def unhandled_command(message: types.Message):

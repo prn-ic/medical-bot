@@ -11,7 +11,7 @@ db = peewee.PostgresqlDatabase(database=os.getenv('PSQL_DEV_DATABASE'),
                                field_types={'uuid': 'uuid'})
 
 
-def get_answer(question_name: str):
+def get_question(question_name: str):
     answer = Question.get_or_none(Question.command_name == question_name).answer
 
     if answer is None:

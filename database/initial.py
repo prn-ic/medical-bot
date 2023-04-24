@@ -3,7 +3,6 @@ import random
 import uuid
 
 
-
 random_uuid_generator = random.Random()
 
 if __name__ == '__main__':

@@ -1,11 +1,11 @@
 from aiogram import types, Dispatcher
-from utils.database.questions import get_answer
+from database.query.get import get_question
 from keyboards.keyboards import welcome_keyboard, user_main_keyboard, user_information_keyboard, go_menu_keyboard
 
 
 async def help_command(message: types.Message):
     await message.answer('Выбран')
-    await message.answer(get_answer('user_help'), reply_markup=welcome_keyboard, parse_mode="Markdown")
+    await message.answer(get_question('user_help'), reply_markup=welcome_keyboard, parse_mode="Markdown")
 
 
 async def get_info(message: types.Message):
