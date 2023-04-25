@@ -64,7 +64,6 @@ async def auth_end_sign_in(message: types.Message, state: FSMContext):
     employee_user = User()
     employee_user.id = uuid.uuid4()
     employee_user.telegram_id = message.from_user.id
-    create_user(employee_user)
 
     employee_info.role = employee_role
     employee_info.user = employee_user
@@ -79,6 +78,7 @@ async def auth_end_sign_in(message: types.Message, state: FSMContext):
                 (re.match(validate_phone_number_pattern, user_data['phone'])):
             raise Exception('Invalid data')
 
+        create_user(employee_user)
         create_user_info(employee_info)
 
         await message.answer('✅Регистрация успешно завершена.✅\n'
