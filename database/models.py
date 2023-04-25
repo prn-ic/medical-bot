@@ -38,6 +38,7 @@ class Establishment(BaseModel):
         db_table = 'establishments'
 
     name = peewee.CharField()
+    description = peewee.CharField()
     city_name = peewee.CharField()
     coord_latitude = peewee.DecimalField(max_digits=8, decimal_places=6)
     coord_longitude = peewee.DecimalField(max_digits=9, decimal_places=6)
@@ -78,6 +79,7 @@ class UserInfo(BaseModel):
     surname = peewee.CharField()
     patronymic = peewee.CharField()
     phone = peewee.CharField()
+    email = peewee.CharField()
     is_notify = peewee.BooleanField()
     is_accepted = peewee.BooleanField(default=False)
 

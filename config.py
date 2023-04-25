@@ -4,7 +4,6 @@ from aiogram import Bot, Dispatcher
 from utils.logger import txt_logger
 from handlers.general import register_handlers_client
 from handlers.user.handlers import register_handlers_user
-
 import os
 import logging
 
