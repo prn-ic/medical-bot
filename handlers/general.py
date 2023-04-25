@@ -4,6 +4,7 @@ from utils.states import AuthState
 from database.query.get import get_question, get_user_role_by_name
 from database.commands.post import *
 from keyboards.keyboards import welcome_keyboard, user_main_keyboard
+import re
 
 
 async def start(message: types.Message):
@@ -55,6 +56,9 @@ async def auth_end_sign_in(message: types.Message, state: FSMContext):
 
     user_data = await state.get_data()
 
+    validate_phone_number_pattern = "^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?" \
+                                    "[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$"
+
     employee_role = get_user_role_by_name('Employee')
     employee_info = UserInfo()
     employee_user = User()
@@ -71,6 +75,10 @@ async def auth_end_sign_in(message: types.Message, state: FSMContext):
     employee_info.email = user_data['email']
 
     try:
+        if not (re.match(r"[^@]+@[^@]+\.[^@]+", user_data['email'])) or not \
+                (re.match(validate_phone_number_pattern, user_data['phone'])):
+            raise Exception('Invalid data')
+
         create_user_info(employee_info)
 
         await message.answer('✅Регистрация успешно завершена.✅\n'
@@ -79,9 +87,10 @@ async def auth_end_sign_in(message: types.Message, state: FSMContext):
                              'пойдет не так, либо регистрация '
                              'пройдет успешно')
     except:
-        await message.answer('❌ Регистрация не удалась! ❌\n'
-                             'Возможные причины: \n•Уже существует сотрудник с данным номером телефона\n'
-                             '•Уже существует сотрудник с данным адресом электронной почты')
+        await message.answer("❌ Регистрация не удалась! ❌\n"
+                             "Возможные причины: \n• Уже существует сотрудник с данным номером телефона\n"
+                             "• Уже существует сотрудник с данным адресом электронной почты\n"
+                             "• Неправильно указаны данные")
 
     await state.finish()
 
