@@ -14,4 +14,5 @@ if __name__ == '__main__':
                       UserInfo,
                       Question,
                       Record,
-                      SupportTopic])
+                      SupportTopic,
+                      SupportTopicMessage])

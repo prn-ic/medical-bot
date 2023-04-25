@@ -5,6 +5,10 @@ class SearchState(StatesGroup):
     search_value = State()
 
 
+class SupportState(StatesGroup):
+    wait_content = State()
+
+
 class AuthState(StatesGroup):
     wait_firstname = State()
     wait_surname = State()

@@ -49,7 +49,7 @@ class User(BaseModel):
     class Meta:
         db_table = 'users'
 
-    telegram_id = peewee.CharField()
+    telegram_id = peewee.CharField(unique=True)
     expiration_time = peewee.DateTimeField(default=datetime.datetime.now() + datetime.timedelta(days=30))
 
 
@@ -59,6 +59,7 @@ class Employee(BaseModel):
 
     user = peewee.ForeignKeyField(User, on_delete='cascade')
     position = peewee.CharField()
+    link = peewee.CharField()
 
 
 class EmployeeEstablishment(BaseModel):
@@ -108,7 +109,21 @@ class SupportTopic(BaseModel):
     class Meta:
         db_table = 'support_topics'
 
-    question = peewee.TextField(null=False)
-    responder = peewee.ForeignKeyField(User, on_delete='cascade')
-    questioner = peewee.ForeignKeyField(User, on_delete='cascade')
+    responder_telegram_id = peewee.CharField()
     is_closed = peewee.BooleanField(default=False)
+
+
+class SupportTopicMessage(BaseModel):
+    class Meta:
+        db_table = 'support_topic_messages'
+
+    topic = peewee.ForeignKeyField(SupportTopic)
+    content = peewee.TextField()
+
+
+class Support(BaseModel):
+    class Meta:
+        db_table = 'supports'
+
+    telegram_id = peewee.CharField()
+    is_access = peewee.BooleanField(default=True)
