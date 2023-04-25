@@ -35,3 +35,6 @@ user_information_keyboard = InlineKeyboardMarkup(row_width=1).add(establishment_
                                                                   employees_info_button,
                                                                   contact_info_button)
 additional_contact_info_keyboard = InlineKeyboardMarkup(row_width=1).add(additional_contact_info_button)
+not_found_answer_keyboard = ReplyKeyboardMarkup(resize_keyboard=True).add(ask_a_question_button,
+                                                                          get_support_button,
+                                                                          go_menu_button)

@@ -4,11 +4,11 @@ from keyboards.keyboards import welcome_keyboard, user_main_keyboard
 
 
 async def start(message: types.Message):
-    await message.answer(get_question('start'), reply_markup=welcome_keyboard)
+    await message.answer(get_question('start').answer, reply_markup=welcome_keyboard)
 
 
 async def skip_auth(message: types.Message):
-    await message.answer(get_question('user_help'), reply_markup=user_main_keyboard, parse_mode="Markdown")
+    await message.answer(get_question('user_help').answer, reply_markup=user_main_keyboard, parse_mode="Markdown")
 
 
 def register_handlers_client(dp: Dispatcher):

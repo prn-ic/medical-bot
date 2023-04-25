@@ -3,14 +3,15 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Text
 from database.query.get import get_question
 from database.query.get import get_establishments_by_city_name, get_same_answers, \
-    get_establisments_cities, get_establishment_by_name, get_question_model, get_answer_by_id
-from keyboards.keyboards import additional_contact_info_keyboard, welcome_keyboard, \
+    get_establisments_cities, get_establishment_by_name, get_answer_by_id
+from keyboards.keyboards import additional_contact_info_keyboard, not_found_answer_keyboard, \
     user_main_keyboard, user_information_keyboard, go_menu_keyboard
 from utils.states import SearchState
 
 
 async def help_command(message: types.Message):
-    await message.answer(get_question('user_help'), reply_markup=welcome_keyboard, parse_mode='Markdown')
+    await message.answer(get_question('user_help').answer, reply_markup=user_main_keyboard,
+                         parse_mode='Markdown')
 
 
 async def get_info(message: types.Message):
@@ -29,7 +30,7 @@ async def ask_a_question(message: types.Message, state: FSMContext):
 
 
 async def get_question_answer(message: types.Message, state: FSMContext):
-    await message.answer(f'🔎 Ищем подходящий вариант {message.text.lower()}')
+    await message.answer(f'🔎 Ищем подходящий вариант ...')
 
     questions = get_same_answers(message.text.lower())
 
@@ -37,11 +38,12 @@ async def get_question_answer(message: types.Message, state: FSMContext):
 
     if len(questions) == 0:
         await message.answer('Извините, но я не смогу ответить на ваш вопрос\n'
-                             'Вы можете воспользоваться технической поддержкой',
-                             reply_markup=go_menu_keyboard)
+                             'Вы можете воспользоваться технической поддержкой,'
+                             ' или задать вопрос заново',
+                             reply_markup=not_found_answer_keyboard)
     else:
         for answer in questions:
-            question = get_question_model(answer)
+            question = get_question(answer)
             keyboard.add(types.InlineKeyboardButton(question.command_name,
                                                     callback_data=f'search_by '
                                                                   f'{question.id}'))
@@ -102,7 +104,7 @@ async def find_establishments_by_name_callback(callback: types.CallbackQuery):
 
 
 async def contact_info_callback(callback: types.CallbackQuery):
-    await callback.message.edit_text(get_question('contact_info'),
+    await callback.message.edit_text(get_question('contact_info').answer,
                                      reply_markup=additional_contact_info_keyboard,
                                      parse_mode='HTML')
 
