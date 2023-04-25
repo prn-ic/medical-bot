@@ -12,6 +12,8 @@ class AuthState(StatesGroup):
     wait_phone = State()
     wait_email = State()
     wait_accept_notify = State()
+    wait_role = State()
+    wait_end = State()
 
 
 class EmployeeAuthState(StatesGroup):

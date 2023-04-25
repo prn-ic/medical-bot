@@ -32,7 +32,6 @@ user_main_keyboard = ReplyKeyboardMarkup(resize_keyboard=True, row_width=1).add(
                                                                                 settings_button)
 go_menu_keyboard = ReplyKeyboardMarkup(resize_keyboard=True).add(go_menu_button)
 user_information_keyboard = InlineKeyboardMarkup(row_width=1).add(establishment_info_button,
-                                                                  employees_info_button,
                                                                   contact_info_button)
 additional_contact_info_keyboard = InlineKeyboardMarkup(row_width=1).add(additional_contact_info_button)
 not_found_answer_keyboard = ReplyKeyboardMarkup(resize_keyboard=True).add(ask_a_question_button,

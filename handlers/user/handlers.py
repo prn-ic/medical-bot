@@ -3,7 +3,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters import Text
 from database.query.get import get_question
 from database.query.get import get_establishments_by_city_name, get_same_answers, \
-    get_establisments_cities, get_establishment_by_name, get_answer_by_id
+    get_establisments_cities, get_establishment_by_id, get_answer_by_id
 from keyboards.keyboards import additional_contact_info_keyboard, not_found_answer_keyboard, \
     user_main_keyboard, user_information_keyboard, go_menu_keyboard
 from utils.states import SearchState
@@ -66,7 +66,7 @@ async def search_by_id_callback(callback: types.CallbackQuery):
 async def find_establishments(callback: types.CallbackQuery):
     establishments = get_establisments_cities()
     keyboard = types.InlineKeyboardMarkup()
-    for city in establishments:
+    for city in list(set(establishments)):
         keyboard.add(types.InlineKeyboardButton(city,
                                                 callback_data=f'find_establisment_by_city {city}'))
 
@@ -79,8 +79,8 @@ async def find_establishments_by_city_callback(callback: types.CallbackQuery):
     keyboard = types.InlineKeyboardMarkup()
     for establishment in establishments:
         keyboard.add(types.InlineKeyboardButton(establishment.name,
-                                                callback_data=f'find_establisment_by_name '
-                                                              f'{establishment.name}'))
+                                                callback_data=f'find_establisment_by_id '
+                                                              f'{establishment.id}'))
 
     await callback.message.edit_text('📍Вот что удалось найти📍\n'
                                      'Нажмите на город, чтобы '
@@ -88,12 +88,14 @@ async def find_establishments_by_city_callback(callback: types.CallbackQuery):
 
 
 async def find_establishments_by_name_callback(callback: types.CallbackQuery):
-    establishment = get_establishment_by_name(callback.data
-                                              .replace('find_establisment_by_name ', ''))
+    establishment = get_establishment_by_id(callback.data
+                                              .replace('find_establisment_by_id ', ''))
 
     text = f'ℹ️ Информация об учреждении ℹ️\n' \
-           f'Наименование учреждения: <b>{establishment.name}</b>\n' \
-           f'Город: <b>{establishment.city_name}</b>\n'
+           f'Наименование учреждения:\n •<b>{establishment.name}</b>\n' \
+           f'Адрес:\n •<b>{establishment.address}</b>\n' \
+           f'График работы:\n •<b>{establishment.description}</b>\n' \
+           f'Город:\n •<b>{establishment.city_name}</b>\n'
 
     await callback.message.answer(text, reply_markup=go_menu_keyboard,
                                   parse_mode="HTML")
@@ -124,7 +126,7 @@ def register_handlers_user(dp: Dispatcher):
     dp.register_callback_query_handler(find_establishments_by_city_callback,
                                        Text(startswith='find_establisment_by_city '))
     dp.register_callback_query_handler(find_establishments_by_name_callback,
-                                       Text(startswith='find_establisment_by_name '))
+                                       Text(startswith='find_establisment_by_id '))
     dp.register_callback_query_handler(contact_info_callback,
                                        Text(startswith='info_contact'))
     dp.register_callback_query_handler(search_by_id_callback,

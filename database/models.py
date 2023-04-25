@@ -23,7 +23,7 @@ class UserRole(BaseModel):
     class Meta:
         db_table = 'user_roles'
 
-    name = peewee.CharField()
+    name = peewee.CharField(unique=True)
 
 
 class RecordType(BaseModel):
@@ -39,6 +39,7 @@ class Establishment(BaseModel):
 
     name = peewee.CharField()
     description = peewee.CharField()
+    address = peewee.CharField()
     city_name = peewee.CharField()
     coord_latitude = peewee.DecimalField(max_digits=8, decimal_places=6)
     coord_longitude = peewee.DecimalField(max_digits=9, decimal_places=6)
@@ -78,8 +79,8 @@ class UserInfo(BaseModel):
     first_name = peewee.CharField()
     surname = peewee.CharField()
     patronymic = peewee.CharField()
-    phone = peewee.CharField()
-    email = peewee.CharField()
+    phone = peewee.CharField(unique=True)
+    email = peewee.CharField(unique=True)
     is_notify = peewee.BooleanField()
     is_accepted = peewee.BooleanField(default=False)
 
