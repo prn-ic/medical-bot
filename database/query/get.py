@@ -60,11 +60,19 @@ def get_symptoms():
     return Symptom.select()
 
 
+def get_cause_by_id(cause_id: uuid):
+    cause = SymptomCause.get_or_none(SymptomCause.id == cause_id)
+    return cause
+
+
 def get_symptom_causes(symptom_id: uuid):
     symptom = Symptom.get_or_none(Symptom.id == symptom_id)
-    return SymptomCause.select().where(SymptomCause.symptom == symptom)
+    causes = SymptomCause.select().where(SymptomCause.symptom == symptom).order_by(SymptomCause.cause_score)
+    return [t for t in causes]
 
 
 def get_cause_solutions(symptom_id: uuid):
     symptom = Symptom.get_or_none(Symptom.id == symptom_id)
-    return SymptomCauseSolution.select().where(SymptomCauseSolution.symptom == symptom)
+    solutions = SymptomCauseSolution.select().where(SymptomCauseSolution.symptom == symptom)\
+        .order_by(SymptomCauseSolution.score)
+    return [t for t in solutions]

@@ -13,6 +13,14 @@ def generate_symptom_keyboard(cause_id: uuid, index: int, score: int):
 
     return keyboard
 
+
+def generate_url_keyboard(text: str, url: str):
+    button = InlineKeyboardButton(text, url=url)
+    keyboard = InlineKeyboardMarkup(row_width=1).add(button)
+
+    return keyboard
+
+
 # Buttons
 authenticate_button = KeyboardButton("🚻 Начать")
 skip_auth_button = KeyboardButton("🚷 Продолжить без авторизации")
@@ -28,6 +36,7 @@ settings_button = KeyboardButton("🛠 Настройки")
 establishment_info_button = InlineKeyboardButton("🏥 Учреждения", callback_data="info_establishment")
 employees_info_button = InlineKeyboardButton("👩‍🔬 Сотрудники", callback_data="info_employees")
 contact_info_button = InlineKeyboardButton("📞 Контактная информация", callback_data="info_contact")
+
 
 additional_contact_info_button = InlineKeyboardButton("Подробная информация",
                                                       url="http://orskgb.nitoich.tw1.ru"
