@@ -7,6 +7,7 @@ random_uuid_generator = random.Random()
 if __name__ == '__main__':
     db.create_tables([UserRole,
                       RecordType,
+                      EmployeeType,
                       Establishment,
                       User,
                       Employee,
@@ -15,4 +16,7 @@ if __name__ == '__main__':
                       Question,
                       Record,
                       SupportTopic,
-                      SupportTopicMessage])
+                      SupportTopicMessage,
+                      Symptom,
+                      SymptomCause,
+                      SymptomCauseSolution])

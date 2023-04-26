@@ -65,8 +65,36 @@ class Employee(BaseModel):
         db_table = 'employees'
 
     user = peewee.ForeignKeyField(User, on_delete='cascade')
+    type = peewee.ForeignKeyField(EmployeeType)
     position = peewee.CharField()
     link = peewee.CharField()
+
+
+class Symptom(BaseModel):
+    class Meta:
+        db_table = 'symptoms'
+
+    name = peewee.CharField()
+
+
+class SymptomCause(BaseModel):
+    class Meta:
+        db_table = 'symptom_causes'
+
+    sign = peewee.TextField()
+    cause_score = peewee.IntegerField()
+
+
+class SymptomCauseSolution(BaseModel):
+    class Meta:
+        db_table = 'symptom_cause_solution'
+
+    name = peewee.TextField()
+    indication = peewee.TextField()
+    solution = peewee.TextField()
+    medic_type = peewee.ForeignKeyField(EmployeeType)
+    cause = peewee.ForeignKeyField(SymptomCause)
+    score = peewee.IntegerField()
 
 
 class EmployeeEstablishment(BaseModel):
