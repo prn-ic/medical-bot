@@ -1,4 +1,4 @@
-from typing import Text
+from aiogram.dispatcher.filters import Text
 from aiogram import types, Dispatcher
 from database.query.get import get_question
 from keyboards.keyboards import additional_contact_info_keyboard,\
