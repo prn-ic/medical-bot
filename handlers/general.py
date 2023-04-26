@@ -1,5 +1,10 @@
 from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
+from handlers.user.answer import register_answer_handler
+from handlers.user.common import register_common_handler
+from handlers.user.establishment import register_establishment_handler
+from handlers.user.information import register_information_handler
+from handlers.user.support import register_support_handler
 from utils.states import AuthState
 from database.query.get import get_question, get_user_role_by_name
 from database.commands.post import *
@@ -95,7 +100,7 @@ async def auth_end_sign_in(message: types.Message, state: FSMContext):
     await state.finish()
 
 
-def register_handlers_client(dp: Dispatcher):
+def register_handlers_handler(dp: Dispatcher):
     dp.register_message_handler(start, commands=['start'])
     dp.register_message_handler(skip_auth, lambda message: message.text == '🚷 Продолжить без авторизации')
     dp.register_message_handler(auth, lambda message: message.text == '🚻 Начать', state=None)
@@ -104,3 +109,12 @@ def register_handlers_client(dp: Dispatcher):
     dp.register_message_handler(auth_set_phone, state=AuthState.wait_phone)
     dp.register_message_handler(auth_set_email, state=AuthState.wait_email)
     dp.register_message_handler(auth_end_sign_in, state=AuthState.wait_end)
+
+
+def register_user_handlers(dp: Dispatcher):
+    register_handlers_handler(dp)
+    register_answer_handler(dp)
+    register_common_handler(dp)
+    register_establishment_handler(dp)
+    register_information_handler(dp)
+    register_support_handler(dp)

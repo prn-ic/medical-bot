@@ -53,6 +53,13 @@ class User(BaseModel):
     expiration_time = peewee.DateTimeField(default=datetime.datetime.now() + datetime.timedelta(days=30))
 
 
+class EmployeeType(BaseModel):
+    class Meta:
+        db_table = 'employee_types'
+
+    name = peewee.CharField()
+
+
 class Employee(BaseModel):
     class Meta:
         db_table = 'employees'
