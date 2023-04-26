@@ -61,8 +61,10 @@ def get_symptoms():
 
 
 def get_symptom_causes(symptom_id: uuid):
-    return SymptomCause.select().where(SymptomCause.symptom.id == symptom_id)
+    symptom = Symptom.get_or_none(Symptom.id == symptom_id)
+    return SymptomCause.select().where(SymptomCause.symptom == symptom)
 
 
 def get_cause_solutions(symptom_id: uuid):
-    return SymptomCauseSolution.select().where(SymptomCauseSolution.symptom.id == symptom_id)
+    symptom = Symptom.get_or_none(Symptom.id == symptom_id)
+    return SymptomCauseSolution.select().where(SymptomCauseSolution.symptom == symptom)

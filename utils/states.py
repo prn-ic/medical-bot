@@ -20,5 +20,13 @@ class AuthState(StatesGroup):
     wait_end = State()
 
 
+class SymptomState(StatesGroup):
+    wait_causes_list = State()
+    wait_causes_solution_list = State()
+    wait_cause_score = State()
+    wait_current_cause = State()
+    wait_solution = State()
+
+
 class EmployeeAuthState(StatesGroup):
     wait_position = State()

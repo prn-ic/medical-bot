@@ -5,6 +5,7 @@ from handlers.user.common import register_common_handler
 from handlers.user.establishment import register_establishment_handler
 from handlers.user.information import register_information_handler
 from handlers.user.support import register_support_handler
+from handlers.user.symptoms import register_symptom_handler
 from utils.states import AuthState
 from database.query.get import get_question, get_user_role_by_name
 from database.commands.post import *
@@ -118,3 +119,4 @@ def register_user_handlers(dp: Dispatcher):
     register_establishment_handler(dp)
     register_information_handler(dp)
     register_support_handler(dp)
+    register_symptom_handler(dp)

@@ -1,10 +1,24 @@
 from aiogram.types import *
+import uuid
+
+
+def generate_symptom_keyboard(cause_id: uuid, index: int, score: int):
+    accept_button = InlineKeyboardButton('Да', callback_data=f'yes_cause {cause_id}|{index}|{score}')
+    decline_button = InlineKeyboardButton('Нет', callback_data=f'no_cause {cause_id}|{index}|{score}')
+    cancel_button = InlineKeyboardButton('Отмена', callback_data=f'cancel_exam')
+
+    keyboard = InlineKeyboardMarkup(row_width=1).add(accept_button,
+                                                     decline_button,
+                                                     cancel_button)
+
+    return keyboard
 
 # Buttons
 authenticate_button = KeyboardButton("🚻 Начать")
 skip_auth_button = KeyboardButton("🚷 Продолжить без авторизации")
 
 record_to_appointment_button = KeyboardButton("📋 Записаться к врачу")
+symptoms_button = KeyboardButton("❤️ Симптомы")
 ask_a_question_button = KeyboardButton("❔ Задать вопрос")
 information_button = KeyboardButton("ℹ️ Информация")
 get_support_button = KeyboardButton("☎️ Обратиться в поддержку")
@@ -25,7 +39,9 @@ go_menu_button = InlineKeyboardButton("↩️ В меню", callback_data='go_me
 welcome_keyboard = ReplyKeyboardMarkup(resize_keyboard=True).add(authenticate_button, skip_auth_button)
 admin_keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
 employee_keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
-user_main_keyboard = ReplyKeyboardMarkup(resize_keyboard=True, row_width=1).add(ask_a_question_button,
+user_main_keyboard = ReplyKeyboardMarkup(resize_keyboard=True, row_width=1).add(record_to_appointment_button,
+                                                                                symptoms_button,
+                                                                                ask_a_question_button,
                                                                                 information_button,
                                                                                 get_support_button,
                                                                                 help_button)
