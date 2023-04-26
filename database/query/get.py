@@ -1,5 +1,5 @@
 from dotenv import load_dotenv, find_dotenv
-from database.models import Question, Establishment, UserRole, User
+from database.models import Question, Establishment, UserRole, User, Symptom, SymptomCause, SymptomCauseSolution
 import os
 import peewee
 import difflib
@@ -54,3 +54,15 @@ def get_user_role_by_name(value: str):
 def get_user_by_id(value: uuid):
     user = User.get_or_none(User.id == value)
     return user
+
+
+def get_symptoms():
+    return Symptom.select()
+
+
+def get_symptom_causes(symptom_id: uuid):
+    return SymptomCause.select().where(SymptomCause.symptom.id == symptom_id)
+
+
+def get_cause_solutions(symptom_id: uuid):
+    return SymptomCauseSolution.select().where(SymptomCauseSolution.symptom.id == symptom_id)
