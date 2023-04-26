@@ -83,6 +83,7 @@ class SymptomCause(BaseModel):
 
     sign = peewee.TextField()
     cause_score = peewee.IntegerField()
+    symptom = peewee.ForeignKeyField(Symptom)
 
 
 class SymptomCauseSolution(BaseModel):
@@ -93,7 +94,6 @@ class SymptomCauseSolution(BaseModel):
     indication = peewee.TextField()
     solution = peewee.TextField()
     medic_type = peewee.ForeignKeyField(EmployeeType)
-    cause = peewee.ForeignKeyField(SymptomCause)
     score = peewee.IntegerField()
 
 
