@@ -47,12 +47,12 @@ async def search_by_id_callback(callback: types.CallbackQuery):
 
 
 def register_answer_handler(dp: Dispatcher):
-    dp.register_message_handler(get_question_answer,
-                                lambda message: message.text == '❔ Задать вопрос',
-                                state=None)
     dp.register_message_handler(ask_a_question,
                                 lambda message: message.text == '❔ Задать вопрос',
                                 state=None)
+    dp.register_message_handler(get_question_answer,
+                                lambda message: message.text == '❔ Задать вопрос',
+                                state=SearchState.search_value)
     dp.register_message_handler(get_question_answer, state=SearchState.search_value)
     dp.register_callback_query_handler(search_by_id_callback,
                                        Text(startswith='search_by '))
