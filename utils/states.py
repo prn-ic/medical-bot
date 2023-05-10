@@ -7,6 +7,7 @@ class SearchState(StatesGroup):
 
 class SupportState(StatesGroup):
     wait_content = State()
+    wait_contact = State()
 
 
 class AuthState(StatesGroup):

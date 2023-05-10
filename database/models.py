@@ -146,6 +146,7 @@ class SupportTopic(BaseModel):
         db_table = 'support_topics'
 
     responder_telegram_id = peewee.CharField()
+    responder_contacts = peewee.CharField()
     is_closed = peewee.BooleanField(default=False)
 
 

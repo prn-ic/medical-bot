@@ -8,18 +8,27 @@ import uuid
 
 
 async def get_support(message: types.Message, state: FSMContext):
-    await message.answer('✉️ Для того, чтобы задать вопрос, введите его ниже. ✉️\n\n'
+    await message.answer('✉️ Для того, чтобы задать вопрос, укажите свою почту. ✉️\n\n'
                          'Поддержка свяжется с вами, и вы получите уведомление '
                          'с ответом.')
+    await state.set_state(SupportState.wait_contact)
+
+
+async def send_contacts(message: types.Message, state: FSMContext):
+    await message.answer('✉️ Теперь введите свой вопрос ниже. ✉️')
+    await state.update_data(contact=message.text)
     await state.set_state(SupportState.wait_content)
 
 
 async def send_answer_to_support(message: types.Message, state: FSMContext):
     try:
+        data = await state.get_data()
+
         support_topic = SupportTopic()
         topic_message = SupportTopicMessage()
         support_topic.id = uuid.uuid4()
         support_topic.responder_telegram_id = message.from_user.id
+        support_topic.responder_contacts = data['contact']
 
         topic_message.topic = support_topic
         topic_message.content = message.text
@@ -29,7 +38,7 @@ async def send_answer_to_support(message: types.Message, state: FSMContext):
 
         await message.answer('✅Ваш ответ отправлен в поддержку.✅\n'
                              'Содержание ответа: \n'
-                             f'```{message.text}```'
+                             f'```\n{message.text}\n```'
                              'Ожидайте ответа!', reply_markup=user_main_keyboard, parse_mode='Markdown')
 
     except:
@@ -45,3 +54,4 @@ def register_support_handler(dp: Dispatcher):
                                 lambda message: message.text == '☎️ Обратиться в поддержку',
                                 state=None)
     dp.register_message_handler(send_answer_to_support, state=SupportState.wait_content)
+    dp.register_message_handler(send_contacts, state=SupportState.wait_contact)
