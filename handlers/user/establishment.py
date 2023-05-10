@@ -40,6 +40,8 @@ async def find_establishments_by_name_callback(callback: types.CallbackQuery):
            f'График работы:\n •<b>{establishment.description}</b>\n' \
            f'Город:\n •<b>{establishment.city_name}</b>\n'
 
+    await callback.message.delete()
+
     await callback.message.answer(text, reply_markup=go_menu_keyboard,
                                   parse_mode="HTML")
     await callback.message.answer('📍 Координаты на карте: 📍')
