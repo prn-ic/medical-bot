@@ -2,6 +2,7 @@ from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
 from handlers.user.answer import register_answer_handler
 from handlers.user.common import register_common_handler
+from handlers.user.employee import register_employee_handler
 from handlers.user.establishment import register_establishment_handler
 from handlers.user.information import register_information_handler
 from handlers.user.support import register_support_handler
@@ -120,3 +121,4 @@ def register_user_handlers(dp: Dispatcher):
     register_information_handler(dp)
     register_support_handler(dp)
     register_symptom_handler(dp)
+    register_employee_handler(dp)

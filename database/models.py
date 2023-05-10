@@ -53,6 +53,21 @@ class User(BaseModel):
     expiration_time = peewee.DateTimeField(default=datetime.datetime.now() + datetime.timedelta(days=30))
 
 
+class UserInfo(BaseModel):
+    class Meta:
+        db_table = 'user_infos'
+
+    user = peewee.ForeignKeyField(User)
+    role = peewee.ForeignKeyField(UserRole)
+    first_name = peewee.CharField()
+    surname = peewee.CharField()
+    patronymic = peewee.CharField()
+    phone = peewee.CharField(unique=True)
+    email = peewee.CharField(unique=True)
+    is_notify = peewee.BooleanField()
+    is_accepted = peewee.BooleanField(default=False)
+
+
 class EmployeeType(BaseModel):
     class Meta:
         db_table = 'employee_types'
@@ -64,7 +79,7 @@ class Employee(BaseModel):
     class Meta:
         db_table = 'employees'
 
-    user = peewee.ForeignKeyField(User, on_delete='cascade')
+    user = peewee.ForeignKeyField(UserInfo, on_delete='cascade')
     type = peewee.ForeignKeyField(EmployeeType)
     position = peewee.CharField()
     link = peewee.CharField()
@@ -104,21 +119,6 @@ class EmployeeEstablishment(BaseModel):
 
     employee = peewee.ForeignKeyField(Employee, on_delete='cascade')
     establishment = peewee.ForeignKeyField(Establishment, on_delete='cascade')
-
-
-class UserInfo(BaseModel):
-    class Meta:
-        db_table = 'user_infos'
-
-    user = peewee.ForeignKeyField(User)
-    role = peewee.ForeignKeyField(UserRole)
-    first_name = peewee.CharField()
-    surname = peewee.CharField()
-    patronymic = peewee.CharField()
-    phone = peewee.CharField(unique=True)
-    email = peewee.CharField(unique=True)
-    is_notify = peewee.BooleanField()
-    is_accepted = peewee.BooleanField(default=False)
 
 
 class Question(BaseModel):

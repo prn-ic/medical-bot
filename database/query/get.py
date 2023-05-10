@@ -1,5 +1,5 @@
 from dotenv import load_dotenv, find_dotenv
-from database.models import Question, Establishment, UserRole, User, Symptom, SymptomCause, SymptomCauseSolution
+from database.models import Question, Establishment, UserRole, User, Symptom, SymptomCause, SymptomCauseSolution, Employee, EmployeeEstablishment
 import os
 import peewee
 import difflib
@@ -81,3 +81,21 @@ def get_cause_solutions(symptom_id: uuid):
     solutions = SymptomCauseSolution.select().where(SymptomCauseSolution.symptom == symptom) \
         .order_by(SymptomCauseSolution.score)
     return [t for t in solutions]
+
+
+def get_employees():
+    employees = Employee.select()
+    return employees
+
+
+def get_employee_by_id(employee_id: uuid):
+    employee = Employee.get_or_none(Employee.id == employee_id)
+    return employee
+
+
+def get_establishment_by_employee_id(employee_id: uuid):
+    employee = Employee.get_or_none(Employee.id == employee_id)
+    employee_establishment = EmployeeEstablishment.get_or_none(EmployeeEstablishment.employee == employee)
+    return employee_establishment.establishment
+
+
