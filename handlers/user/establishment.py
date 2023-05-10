@@ -1,7 +1,7 @@
 from aiogram import types, Dispatcher
 from aiogram.dispatcher.filters import Text
 from database.query.get import get_establishments_by_city_name, \
-    get_establisment_cities, get_establishment_by_id, get_establishment_addresses
+    get_establisment_cities, get_establishment_by_id
 from keyboards.keyboards import go_menu_keyboard
 
 

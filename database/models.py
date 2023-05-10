@@ -102,9 +102,8 @@ class EmployeeEstablishment(BaseModel):
     class Meta:
         db_table = 'employees_establishments'
 
-    employee = peewee.ForeignKeyField(User, on_delete='cascade')
+    employee = peewee.ForeignKeyField(Employee, on_delete='cascade')
     establishment = peewee.ForeignKeyField(Establishment, on_delete='cascade')
-    room_number = peewee.CharField()
 
 
 class UserInfo(BaseModel):

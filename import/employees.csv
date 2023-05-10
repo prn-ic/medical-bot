@@ -1,0 +1,45 @@
+id,user_id,type_id,position,link
+895beb91-2260-401d-9f44-d69b0d962015,7043b122-4962-4109-a281-0b30623c0b1e,5a377c7a-b859-4a5d-b303-b9186a14475c,Поликлиника №1,http://orskgb.nitoich.tw1.ru/
+8585509b-8a47-479e-9f25-63b306306db4,24a0cd52-e46d-4e32-acb3-bde238b6a978,5a377c7a-b859-4a5d-b303-b9186a14475c,Поликлиника №2,http://orskgb.nitoich.tw1.ru/
+65140eb6-8c5d-4ceb-aeca-88b40e22fb94,c1212086-138a-43ad-aef8-6e5050ec37da,5a377c7a-b859-4a5d-b303-b9186a14475c,Поликлиника №3,http://orskgb.nitoich.tw1.ru/
+26e6d9dc-511f-4082-923c-bbb865e5ec3c,5c37f5b8-d63c-474e-9275-461d9107b129,5a377c7a-b859-4a5d-b303-b9186a14475c,Поликлиника №4,http://orskgb.nitoich.tw1.ru/
+c09d7f23-5ec9-4035-a172-a04894239dbb,d618e15a-c611-4b85-8f12-b877447fb3bf,5a377c7a-b859-4a5d-b303-b9186a14475c,Поликлиника №5,http://orskgb.nitoich.tw1.ru/
+845a722f-5189-49b9-8f3d-7afebdef6646,6b6737d2-6857-45a6-966e-893d868cecb4,696eedb6-ac35-4ce7-86b6-117718834ae3,,http://orskgb.nitoich.tw1.ru/
+0010afa8-dfc6-4cf4-85d6-1c4782392ab1,ab60d244-109e-4f8e-b604-465e2052d129,5a377c7a-b859-4a5d-b303-b9186a14475c,,http://orskgb.nitoich.tw1.ru/
+24beadf5-9407-44ce-b810-baa57fcabfa5,ca17e002-86e8-4300-96dc-e26dc57ca6cb,5a377c7a-b859-4a5d-b303-b9186a14475c,,http://orskgb.nitoich.tw1.ru/
+8b2af0c2-349e-4420-a2d8-7c829930b0df,40cb8be4-aae3-48a8-aaf7-02d68b1749b4,c5c43d83-a72a-415b-845d-a89c50ff2b00,,http://orskgb.nitoich.tw1.ru/
+1706523b-c1b3-4c8f-9611-fd84cc2f7ba7,55de3a55-942b-42ae-94d1-50c7bca753f4,5a377c7a-b859-4a5d-b303-b9186a14475c,1 хирургическое отделение,http://orskgb.nitoich.tw1.ru/
+43cff266-c196-4515-8b5b-08a78d238388,500a8ab8-1394-4cfd-9d4f-4836129f3237,5a377c7a-b859-4a5d-b303-b9186a14475c,2 хирургическое отделение,http://orskgb.nitoich.tw1.ru/
+9c9e07d8-59c2-43af-9f3d-4398be02ad30,d8022a50-ecf4-4b16-86d3-80f5e24a8d77,5a377c7a-b859-4a5d-b303-b9186a14475c,нейрохирургическое отделение,http://orskgb.nitoich.tw1.ru/
+07f6192e-8b43-4762-83c9-e109c9186bd8,1d60b582-64d0-4ea7-b46d-03c9d46cfe45,5a377c7a-b859-4a5d-b303-b9186a14475c,Травматолог-ортопедическое отделение,http://orskgb.nitoich.tw1.ru/
+52b6488e-8a5e-4451-86ab-cd2a5328c6dd,3cc2ec91-3261-449a-acea-2c6cf6f0a878,5a377c7a-b859-4a5d-b303-b9186a14475c,оториноларингтическое отделение,http://orskgb.nitoich.tw1.ru/
+e59c668a-7eaa-404b-8247-d92296e2918d,af579b2e-03e0-4a78-96a9-d75c9f815fd2,5a377c7a-b859-4a5d-b303-b9186a14475c,урологическое отделение,http://orskgb.nitoich.tw1.ru/
+9388ba64-dabd-4fd4-ba42-c6f1b1b4ba46,fa54e6b6-51b6-491b-989c-d185f62e4219,5a377c7a-b859-4a5d-b303-b9186a14475c,ОРИТ,http://orskgb.nitoich.tw1.ru/
+9c48bb42-7cf4-4947-b385-66baa50ed4b8,e68f7baf-7f24-434d-89d2-84f3d8d13b24,5a377c7a-b859-4a5d-b303-b9186a14475c,,http://orskgb.nitoich.tw1.ru/
+2f08d7d8-6a34-4662-a64e-3ecd71677f5b,427d120a-c80e-478a-9688-6a1278aaa9bb,5a377c7a-b859-4a5d-b303-b9186a14475c,п\а отделение,http://orskgb.nitoich.tw1.ru/
+f757bb4f-d0b4-43d2-84dd-0efc22f39125,4197bcb2-e0f7-4515-aa3d-919f47ba762c,d9d3ca80-a119-4964-ac06-9a10ef7e604c,,http://orskgb.nitoich.tw1.ru/
+879d76b6-8a9e-4140-9234-8294d10f64c0,8d7813ed-6acd-4686-9e32-be8ecb1965f6,5a377c7a-b859-4a5d-b303-b9186a14475c,ПСО кард,http://orskgb.nitoich.tw1.ru/
+78463fd4-6440-4ce5-ac92-0c0d67131e32,7545ab4b-21b2-4cd4-964b-581cd2d103fb,5a377c7a-b859-4a5d-b303-b9186a14475c,1 кардиаграммное отделение,http://orskgb.nitoich.tw1.ru/
+ca6ec3e8-76a4-4c5f-a4f4-4286088ea110,ec566ff5-6d1a-483b-a036-f1edc9206c70,5a377c7a-b859-4a5d-b303-b9186a14475c,1 кардиаграммное отделение,http://orskgb.nitoich.tw1.ru/
+86fecaf1-380f-4d05-ad96-2e6eb976bdec,e57bb9a4-cfec-47fb-8c1c-6db01a002bf5,5a377c7a-b859-4a5d-b303-b9186a14475c,рентгенохирургия,http://orskgb.nitoich.tw1.ru/
+e008d6a3-c0d6-4285-aec2-58441aeb465d,f5b1df1b-0150-4057-ba0d-57c000825b49,5a377c7a-b859-4a5d-b303-b9186a14475c,"ПСО ОНМК, неврологическое отделение",http://orskgb.nitoich.tw1.ru/
+2a4d79d8-f997-415c-a707-37b9a2a477c1,ed12f477-a61d-41a9-a3fe-55bfd9253bf0,5a377c7a-b859-4a5d-b303-b9186a14475c,гастрономическое отделение,http://orskgb.nitoich.tw1.ru/
+a3cf929f-9583-43df-b197-6e70ae1bc23c,1dc3cc62-b6d9-4215-8e6f-c7df8d4cd077,5a377c7a-b859-4a5d-b303-b9186a14475c,гастрономическое отделение,http://orskgb.nitoich.tw1.ru/
+ffe37487-fb47-4501-a190-7e235b732aba,9b1b932c-7fe3-4e24-b28c-e3837d77668e,5a377c7a-b859-4a5d-b303-b9186a14475c,пульмо. Отделение,http://orskgb.nitoich.tw1.ru/
+8f0d07b8-3902-40e6-9a84-e13a4f71f1ae,d92ec869-4f15-44a8-924b-36acf26fec1d,5a377c7a-b859-4a5d-b303-b9186a14475c,пульмо. Отделение,http://orskgb.nitoich.tw1.ru/
+54342de3-ce42-4dd9-8eaf-12c56703f64e,400e3c9f-24ae-4d8a-a527-36591c141c56,5a377c7a-b859-4a5d-b303-b9186a14475c,гематологическое отделение,http://orskgb.nitoich.tw1.ru/
+6bc8bd14-7a02-4597-9d66-d130ff9cb7a4,ce110799-afb6-4dca-b9e8-ebe077cd129e,5a377c7a-b859-4a5d-b303-b9186a14475c,гематологическое отделение,http://orskgb.nitoich.tw1.ru/
+3157ae10-12ee-42a3-9317-5fec30b48d65,73890d4e-9b6c-4b54-bbde-df5f0b70c6a5,5a377c7a-b859-4a5d-b303-b9186a14475c,БРИТ,http://orskgb.nitoich.tw1.ru/
+cfa350e0-a4d6-4926-b0fe-b3d5a00806a3,acb54675-f7ed-4549-b52c-f7595dd5544a,5a377c7a-b859-4a5d-b303-b9186a14475c,ОРИТ,http://orskgb.nitoich.tw1.ru/
+2a146b7b-cea9-4fec-9a57-daf6ccfc8b70,79c589e1-ce68-48d3-b86e-88a6b6aff2f9,19cb3733-cd1a-4866-8702-38cf5553ec71,,http://orskgb.nitoich.tw1.ru/
+399efe96-1d2b-4656-9bc8-98c9b4b27f76,1a48ddc5-41ee-45d6-9137-03a2927d5c23,19cb3733-cd1a-4866-8702-38cf5553ec71,терапевтическое отделение,http://orskgb.nitoich.tw1.ru/
+daac8edf-1cfe-4e48-b25a-52f775ebcca8,549bd117-18c3-42b7-9a67-06e3bd05ebfb,19cb3733-cd1a-4866-8702-38cf5553ec71,офтальмологическое отделение,http://orskgb.nitoich.tw1.ru/
+d999809a-ec16-46ba-8d43-d33548fbfbc2,19b7799f-1085-480b-af2f-764e7aff6d20,19cb3733-cd1a-4866-8702-38cf5553ec71,хирургическое отделение,http://orskgb.nitoich.tw1.ru/
+af5b4b6e-f46f-4fc2-ae6d-9780992c1afd,c71a42cf-b91a-4323-8486-38d2ae310872,19cb3733-cd1a-4866-8702-38cf5553ec71,ОРИТ,http://orskgb.nitoich.tw1.ru/
+5fdd70b4-76e9-4be6-b699-715136190596,c8d4b27c-b352-4ef8-b7a7-c937332fa38b,19cb3733-cd1a-4866-8702-38cf5553ec71,ОРИТ,http://orskgb.nitoich.tw1.ru/
+4e83d3dc-41cf-48df-8255-f522e4df6df6,19837772-3166-45c3-b573-129cc37bc65b,19cb3733-cd1a-4866-8702-38cf5553ec71,дневной стационар,http://orskgb.nitoich.tw1.ru/
+e82db59e-8dcc-4f2c-af2e-b88017bc7de6,cfea4f4f-fe52-4689-8032-de6ed0f6f7c3,19cb3733-cd1a-4866-8702-38cf5553ec71,,http://orskgb.nitoich.tw1.ru/
+a0d7c503-e60c-4ef3-bb65-9fd6648d8500,d7906474-3b29-4f89-b5b8-11b38fe7b6dd,19cb3733-cd1a-4866-8702-38cf5553ec71,ФД И УЗД,http://orskgb.nitoich.tw1.ru/
+b9560ee0-c476-4e94-95a0-240dc14e1244,49c7c7fc-0093-4263-abde-6b531890045f,19cb3733-cd1a-4866-8702-38cf5553ec71,ФД И УЗД,http://orskgb.nitoich.tw1.ru/
+b82be337-0697-4df7-934f-f32bc3ac7813,f60a682f-ecbc-45ec-ab58-e4df475bc067,19cb3733-cd1a-4866-8702-38cf5553ec71,рентгеновское отделение,http://orskgb.nitoich.tw1.ru/
+cf53004e-1781-4235-b2a3-b38bff4a7a48,ccec0349-946f-43ef-adee-c6691c429702,19cb3733-cd1a-4866-8702-38cf5553ec71,КДЛ,http://orskgb.nitoich.tw1.ru/
