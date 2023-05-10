@@ -1,12 +1,12 @@
 from aiogram import types, Dispatcher
 from aiogram.dispatcher.filters import Text
 from database.query.get import get_establishments_by_city_name, \
-    get_establisments_cities, get_establishment_by_id
+    get_establisment_cities, get_establishment_by_id, get_establishment_addresses
 from keyboards.keyboards import go_menu_keyboard
 
 
 async def find_establishments(callback: types.CallbackQuery):
-    establishments = get_establisments_cities()
+    establishments = get_establisment_cities()
     keyboard = types.InlineKeyboardMarkup()
     for city in list(set(establishments)):
         keyboard.add(types.InlineKeyboardButton(city,
@@ -20,7 +20,8 @@ async def find_establishments_by_city_callback(callback: types.CallbackQuery):
     establishments = get_establishments_by_city_name(city)
     keyboard = types.InlineKeyboardMarkup()
     for establishment in establishments:
-        keyboard.add(types.InlineKeyboardButton(establishment.name,
+        short_address = f'{establishment.name} на {establishment.address.split(",")[2]}'
+        keyboard.add(types.InlineKeyboardButton(short_address,
                                                 callback_data=f'find_establisment_by_id '
                                                               f'{establishment.id}'))
 

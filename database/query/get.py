@@ -31,9 +31,14 @@ def get_same_answers(question_name: str):
     return difflib.get_close_matches(question_name, questions, n=3, cutoff=0.4)
 
 
-def get_establisments_cities():
+def get_establisment_cities():
     establishments = Establishment.select()
     return [establishment.city_name for establishment in establishments]
+
+
+def get_establishment_addresses():
+    establishments = Establishment.select()
+    return [establishments.address for establishment in establishments]
 
 
 def get_establishments_by_city_name(value: str):
@@ -73,6 +78,6 @@ def get_symptom_causes(symptom_id: uuid):
 
 def get_cause_solutions(symptom_id: uuid):
     symptom = Symptom.get_or_none(Symptom.id == symptom_id)
-    solutions = SymptomCauseSolution.select().where(SymptomCauseSolution.symptom == symptom)\
+    solutions = SymptomCauseSolution.select().where(SymptomCauseSolution.symptom == symptom) \
         .order_by(SymptomCauseSolution.score)
     return [t for t in solutions]
