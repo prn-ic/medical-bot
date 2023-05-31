@@ -1,4 +1,4 @@
-from database.models import *
+from models import *
 import random
 
 db = peewee.PostgresqlDatabase(database=os.getenv('PSQL_DEV_DATABASE'),

@@ -12,7 +12,4 @@ dispatcher = Dispatcher(bot, storage=MemoryStorage())
 
 register_user_handlers(dispatcher)
 
-if __debug__:
-    txt_logger.start_logging(logging_level=logging.DEBUG, log_path='log/debug')
-else:
-    txt_logger.start_logging(logging_level=logging.INFO, log_path='log/release')
+logging.basicConfig(level=logging.INFO, format='[%(levelname)s]:[%(asctime)s] - %(name)s: %(message)s')
